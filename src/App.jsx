@@ -32,15 +32,15 @@ function App() {
     setResults([]);
 
     try {
-            const API_BASE_URL = import.meta.env.DEV
+      const API_BASE_URL = import.meta.env.DEV
         ? "http://localhost:5000"
-        : "";
+        : "https://bangalore-pincode-explorer-as2c.onrender.com";
 
-        const endpoint =
+      const endpoint =
         searchType === "pincode"
-            ? `${API_BASE_URL}/api/pincode/${value}`
-            : `${API_BASE_URL}/api/postoffice/${encodeURIComponent(
-                value
+          ? `${API_BASE_URL}/api/pincode/${value}`
+          : `${API_BASE_URL}/api/postoffice/${encodeURIComponent(
+              value
             )}`;
 
       const response = await fetch(endpoint);
