@@ -32,11 +32,15 @@ function App() {
     setResults([]);
 
     try {
-      const endpoint =
+            const API_BASE_URL = import.meta.env.DEV
+        ? "http://localhost:5000"
+        : "";
+
+        const endpoint =
         searchType === "pincode"
-          ? `${import.meta.env.VITE_API_URL}/api/pincode/${value}`
-          : `${import.meta.env.VITE_API_URL}/api/postoffice/${encodeURIComponent(
-              value
+            ? `${API_BASE_URL}/api/pincode/${value}`
+            : `${API_BASE_URL}/api/postoffice/${encodeURIComponent(
+                value
             )}`;
 
       const response = await fetch(endpoint);
